@@ -60,7 +60,7 @@
       "apiVersion": "2018-05-01",
       "name": "GetSecretValue",
       "dependsOn": [
-        "[concat('Microsoft.Resources/deployments/', 'UpdateEncryptionSettings')]"
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
       ],
       "properties": {
         "mode": "Incremental",
