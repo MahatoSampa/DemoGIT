@@ -83,7 +83,10 @@
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "Incremental",
-        "parameters": {          
+        "parameters": {
+          "keyVaultResourceGroup": {
+            "value": "[parameters('keyVaultResourceGroup')]"
+          },
           "keyVaultResourceID": {
             "value": "[variables('keyVaultResourceID')]"
           },

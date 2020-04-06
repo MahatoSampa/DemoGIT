@@ -8,6 +8,12 @@
         "description": "Name of the Virtual Machine"
       }
     },
+    "keyVaultResourceGroup": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Virtual Machine"
+      }
+    },
     "keyVaultResourceID": {
       "type": "string",
       "metadata": {
@@ -44,6 +50,43 @@
                 },
                 "secretUrl": "[parameters('keyVaultSecretUrl')]"
               }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
+      "name": "GetSecretValue",
+      "dependsOn": [
+        "[concat('Microsoft.Resources/deployments/', 'UpdateEncryptionSettings')]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/MahatoSampa/DemoGIT/master/keyvaultsecretkeyaccess.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "vmLocation": {
+            "value": "[parameters('location')]"
+          },
+          "virtualMachine_name": {
+            "value": "[parameters('vmName')]"
+          },
+          "secretArtifactsLocation": {
+            "value": "https://capitalmarketdevopsdiag.blob.core.windows.net/devops/"
+          },
+          "mountFileName": {
+            "value": "LinuxVMMountFile.sh"
+          },
+          "artifactsSASToken": {
+            "reference": {
+              "keyVault": {
+                "id": "[concat(subscription().id,'/resourceGroups/',parameters('keyVaultResourceGroup'),'/providers/Microsoft.KeyVault/vaults/kv-SAS-Token')]"
+              },
+              "secretName": "SASTokenSecretKey"
             }
           }
         }
