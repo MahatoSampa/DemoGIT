@@ -62,6 +62,12 @@
           "mountFileName": {
             "value": "LinuxVMMountFile.sh"
           },
+          "keyVaultResourceID": {
+            "value": "[parameters('keyVaultResourceID')]"
+          },
+          "keyVaultSecretUrl": {
+            "value": "[parameters('keyVaultSecretUrl')]"
+          },
           "artifactsSASToken": {
             "reference": {
               "keyVault": {
