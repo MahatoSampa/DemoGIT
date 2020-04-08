@@ -38,6 +38,14 @@
       "metadata": {
         "description": "Location for all resources."
       }
+    },
+    "adminUserName": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "publicSSHKey": {
+      "type": "string",
+      "defaultValue": ""
     }
   },
   "variables": {
@@ -95,6 +103,12 @@
           },
           "vmName": {
             "value": "[parameters('vmName')]"
+          },
+          "adminUserName": {
+            "value": "[parameters('adminUserName')]"
+          },
+          "publicSSHKey": {
+            "value": "[parameters('publicSSHKey')]"
           }
         },
         "templateLink": {

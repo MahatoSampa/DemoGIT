@@ -2,6 +2,18 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "adminUserName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Virtual Machine"
+      }
+    },
+    "publicSSHKey": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Virtual Machine"
+      }
+    },
     "vmName": {
       "type": "string",
       "metadata": {
@@ -67,6 +79,12 @@
           },
           "keyVaultSecretUrl": {
             "value": "[parameters('keyVaultSecretUrl')]"
+          },
+          "adminUserName": {
+            "value": "[parameters('adminUserName')]"
+          },
+          "publicSSHKey": {
+            "value": "[parameters('publicSSHKey')]"
           },
           "artifactsSASToken": {
             "reference": {
