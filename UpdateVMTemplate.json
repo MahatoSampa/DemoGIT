@@ -61,7 +61,7 @@
       "apiVersion": "2018-05-01",
       "name": "GetSecretValue",
       "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+        
       ],
       "properties": {
         "mode": "Incremental",
