@@ -35,13 +35,32 @@
     }
   },
   "resources": [
-    
+    {
+      "apiVersion": "2018-05-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "storageProfile": {
+          "osDisk": {
+            "encryptionSettings": {
+              "diskEncryptionKey": {
+                "sourceVault": {
+                  "id": "[parameters('keyVaultResourceID')]"
+                },
+                "secretUrl": "[parameters('keyVaultSecretUrl')]"
+              }
+            }
+          }
+        }
+      }
+    },
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2018-05-01",
       "name": "GetSecretValue",
       "dependsOn": [
-        
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
       ],
       "properties": {
         "mode": "Incremental",
