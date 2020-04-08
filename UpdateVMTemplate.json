@@ -43,7 +43,7 @@
       "properties": {
         "storageProfile": {
           "osDisk": {
-            "createOption": "Empty",
+            "createOption": "FromImage",
             "encryptionSettings": {
               "diskEncryptionKey": {
                 "sourceVault": {
