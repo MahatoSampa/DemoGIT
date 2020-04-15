@@ -76,7 +76,7 @@
           "KeyEncryptionKeyURL": "",
           "KeyVaultURL": "[variables('keyVaultURL')]",
           "SequenceVersion": "1",
-          "VolumeType": "All"
+          "VolumeType": "Data"
         },
         "type": "AzureDiskEncryptionForLinux",
         "typeHandlerVersion": "[variables('extensionVersion')]"
