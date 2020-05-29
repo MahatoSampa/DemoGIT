@@ -12,7 +12,7 @@
       "type": "string",
       "defaultValue": ""
     },
-	"aacName": {
+    "aacName": {
       "type": "string",
       "defaultValue": ""
     },
@@ -40,7 +40,7 @@
     {
       "type": "Microsoft.Automation/automationAccounts/runbooks",
       "apiVersion": "2015-01-01-preview",
-	  "name": "[concat(parameters('aacName'),'/', parameters('runbookName'))]",
+      "name": "[concat(parameters('aacName'),'/', parameters('runbookName'))]",
       "location": "[parameters('aacLocation')]",
       "dependsOn": [
       ],
