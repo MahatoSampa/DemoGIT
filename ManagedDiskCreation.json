@@ -60,6 +60,7 @@
       "name": "[parameters('managedDiskName')]",
       "location": "[variables('location')]",
       "properties": {
+        "osType": "Linux",
         "creationData": {
           "createOption": "Import",
           "sourceUri": "[parameters('vhdUri')]"
