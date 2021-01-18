@@ -2,7 +2,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: hello-arc
-  namespace: hello-arc
+  namespace: prod
 spec:
   releaseName: hello-arc-prod
   chart:
@@ -16,4 +16,4 @@ spec:
     replicaCount: 1
     env:
       name: MESSAGE
-      value: GitOps in action
+      value: Azure Arc enabled K8s GitOps Demo!
